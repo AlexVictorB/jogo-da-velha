@@ -45,7 +45,7 @@ h2, h3 {
 
 .container {
     max-width: 280px;
-    max-height: 390px;
+    max-height: 420px;
     /*position: absolute;
     margin: auto;
     top: 0;
@@ -60,7 +60,7 @@ h2, h3 {
 
 .grid {
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
@@ -90,7 +90,23 @@ h2, h3 {
     font-weight: 500;
     color: white;
     text-decoration: none;
+    outline: none;
 
+}
+
+.button:hover {
+    background-color: rgb(126, 188, 190);
+}
+
+#game-mode {
+    background: cadetblue;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    margin: 2px 0 20px 0;
+    padding: 10px 108px;
+    border: none;
+    outline: none;
 }
 
 @media (max-width: 860px) {

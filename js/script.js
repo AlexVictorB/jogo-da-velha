@@ -1,5 +1,7 @@
 const celulas = document.querySelectorAll(".celula");
+let checkTurn = true
 let endgame = false
+let activeBot = false
 
 const jogador_x = "X";
 const jogador_o = "O"
@@ -14,12 +16,33 @@ const combinations = [
     [2,4,6]
 ]
 
+function gameMode() {
+    const select_mode = document.getElementById("game-mode")
+
+    let option= select_mode.options[select_mode.selectedIndex].value
+
+    return option
+}
+
+if(gameMode() == 'PC') {
+    activeBot = true
+    console.log('Bot Ativado!')
+} else if(gameMode() == 'Player2') {
+    activeBot = false
+    console.log('Bot Desligado')
+}
+
 document.addEventListener("click", (event) => {
     if(event.target.matches(".celula")) {
 
-        Play(event.target.id, jogador_x)
-        //console.log(event.target.id)
-        setTimeout(() => bot(), 500)
+        if(activeBot == true) {
+            Play(event.target.id, jogador_x)
+            setTimeout(() => bot(), 500)
+        }
+        else if(activeBot == false) {
+            Play(event.target.id)
+        }
+
     }
 })
 
@@ -78,6 +101,7 @@ function bot() {
 
 function Play(id, turn) {
     const celula = document.getElementById(id);
+    turn = checkTurn ? jogador_x : jogador_o
     celula.textContent = turn
     celula.classList.add(turn)
     checkWinner(turn)
