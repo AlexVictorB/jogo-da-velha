@@ -10,7 +10,7 @@
 body {
     width: 100vw;
     height: 100vh;
-    background-image: linear-gradient(45deg, teal, #89f2fa);
+    background-image: linear-gradient(45deg, #008080, #89f2fa);
     font-family: 'Open Sans', sans-serif;
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ h2, h3 {
     opacity: 0.95;
     color: white;
     display: none;
-    padding-top: 50%;
+    padding-top: 35%;
     position: fixed;
     background-color: black;
 }
@@ -56,10 +56,15 @@ h2, h3 {
     border-radius: 10px;
     background-color: teal;
     /*border: 3px solid darkslategray;*/
+    text-align: center;
+}
+
+#logo {
+    text-align: center;
 }
 
 .grid {
-    margin-top: 20px;
+    margin-top: 5px;
     margin-bottom: 10px;
     display: flex;
     flex-flow: row wrap;

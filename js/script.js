@@ -1,7 +1,7 @@
 const celulas = document.querySelectorAll(".celula");
 let checkTurn = true
 let endgame = false
-let activeBot = false
+let activeBot = true
 
 const jogador_x = "X";
 const jogador_o = "O"
@@ -16,21 +16,25 @@ const combinations = [
     [2,4,6]
 ]
 
-function gameMode() {
-    const select_mode = document.getElementById("game-mode")
+const setVoice = event => {
+    let mode = event.target.value
+    console.log(event.target.value)
 
-    let option= select_mode.options[select_mode.selectedIndex].value
+    if(mode == 'PC') {
+        activeBot = true
+        console.log('Bot Ativado!')
+    } else if(mode == 'Player2') {
+        activeBot = false
+        console.log('Bot Desligado')
+    }
 
-    return option
 }
 
-if(gameMode() == 'PC') {
-    activeBot = true
-    console.log('Bot Ativado!')
-} else if(gameMode() == 'Player2') {
-    activeBot = false
-    console.log('Bot Desligado')
-}
+const select_mode = document.getElementById("game-mode")
+
+select_mode.addEventListener("change", setVoice)
+
+
 
 document.addEventListener("click", (event) => {
     if(event.target.matches(".celula")) {
@@ -38,8 +42,7 @@ document.addEventListener("click", (event) => {
         if(activeBot == true) {
             Play(event.target.id, jogador_x)
             setTimeout(() => bot(), 500)
-        }
-        else if(activeBot == false) {
+        }else if(activeBot == false) {
             Play(event.target.id)
         }
 
@@ -84,9 +87,6 @@ function bot() {
     console.log(numrandom)
     console.log(numrandom2)
 
-
-
-
     //combarar se o array de da previsão de x é igual ao array de combinações possiveis
     //combinations.forEach((nome) => {
     //    console.log(nome)
@@ -99,8 +99,9 @@ function bot() {
     }
 }
 
-function Play(id, turn) {
+function Play(id) {
     const celula = document.getElementById(id);
+
     turn = checkTurn ? jogador_x : jogador_o
     celula.textContent = turn
     celula.classList.add(turn)
@@ -119,8 +120,10 @@ function checkWinner(turn) {
         finishGame(turn)
     }else if(checkDraw()) {
         finishGame()
-
+    }else {
+        checkTurn = !checkTurn
     }
+
 }
 
 function checkDraw() {

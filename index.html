@@ -1,17 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href=".assets/favicon.ico" type="image/x-icon">
+    <link rel="icon" href=".assets/favicon.ico" type="image/x-icon">
     <link type="text/css" rel="stylesheet" href="/css/styles.css">
     <title>Jogo da Velha</title>
 </head>
 <body>
     <div id="dark-screen">
+        <!--    
+        <h2>Player 1 venceu</h2>
+        <h3>Reiniciando...</h3>
+        -->
     </div>
     <div class="container">
-        <h2>JOGO DA VELHA</h2>
+        <img src="./assets/logo.svg" alt="" id="logo" width="80%">
         <div class="grid">
             <div class="celula" id="0"></div>
             <div class="celula" id="1"></div>
@@ -26,9 +32,9 @@
             <div class="celula" id="8"></div>
 
         </div>
-        <select name="" id="game-mode" onchange="gameMode()">
+        <select name="" id="game-mode">
             <option value="PC">Robô</option>
-            <option value="Player2" selected>Amigo</option>
+            <option value="Player2">Amigo</option>
         </select>
         <a href="" onclick="reloadGame()" class="button">Reiniciar</a>
     </div>
