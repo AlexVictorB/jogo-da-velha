@@ -60,7 +60,12 @@ h2, h3 {
 }
 
 #logo {
-    text-align: center;
+    background-image: url('/assets/logo.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    height: auto;
 }
 
 .grid {
